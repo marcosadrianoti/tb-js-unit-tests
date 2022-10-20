@@ -10,7 +10,28 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
+const checkingNumbers = (arrNumbers) => {
+  for (const number of arrNumbers) {
+    if (typeof number === 'string') {
+      return false;
+    }
+  }
+  return true;
+};
 
-const average = () => {};
+const average = (arrNumbers) => {
+  let isANumber = checkingNumbers(arrNumbers);
+  if (isANumber === true && arrNumbers.length !== 0) {
+    let sumTotal = 0;
+    let qtNumbers = arrNumbers.length;
+    for (const number of arrNumbers) {
+      sumTotal += number;
+    }
+    return Math.round(sumTotal / qtNumbers);
+  }
+  return undefined;
+};
+
+console.log(average([2, 2, '4']));
 
 module.exports = average;
