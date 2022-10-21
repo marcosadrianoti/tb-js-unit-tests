@@ -79,7 +79,7 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
 
     // TESTE 4: Verifique se 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
     // ```
-    const objetoRetornado = createMenu({ food: {}, drink: {} });
+    const objetoRetornado = createMenu({ food: { 'coxinha': 1, 'sopa': 2, 'sashimi': 2 }, drink: { 'água': 2, 'cerveja': 4, 'coke': 3 } });
     // objetoRetornado.consumption // Retorno: []
     // ```
     // expect(createMenu({ food: {}, drink: {} }).consumption).toStrictEqual([]);
@@ -105,12 +105,12 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
     // TESTE 6: Verifique se, ao adicionar três pedidos, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos.
     // ```
     // objetoRetornado.order("coxinha");
-    objetoRetornado.order("agua");
+    objetoRetornado.order("água");
     objetoRetornado.order("sopa");
     objetoRetornado.order("sashimi");
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
     // ```
-    expect(objetoRetornado.consumption).toStrictEqual(["coxinha", "agua", "sopa", "sashimi"]);
+    expect(objetoRetornado.consumption).toStrictEqual(["coxinha", "água", "sopa", "sashimi"]);
 
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
     // objetoRetornado.order('coxinha');
     // objetoRetornado.consumption // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
-    expect(objetoRetornado.consumption).toStrictEqual(["coxinha", "agua", "sopa", "sashimi", "coxinha"]);
+    expect(objetoRetornado.consumption).toStrictEqual(["coxinha", "água", "sopa", "sashimi", "coxinha"]);
 
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -134,6 +134,14 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
     // objetoRetornado.order('coxinha');
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
+    // { food: { 'coxinha': 1, 'sopa': 2, 'sashimi': 2 }, drink: { 'água': 2, 'cerveja': 4, 'coke': 3 } }
+    expect(objetoRetornado.pay()).toStrictEqual(8.8);
+    objetoRetornado.consumption = [];
+    const aliments = ["sashimi", "coxinha", "coke", "cerveja", "água", "coke", "sopa"]
+    for (const aliment of aliments) {
+      objetoRetornado.order(aliment);
+    }
+    expect(objetoRetornado.pay()).toStrictEqual(18.7);
 
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
