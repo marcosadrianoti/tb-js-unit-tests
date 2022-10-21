@@ -96,6 +96,11 @@
 const createMenu = (objMenu) => {
   const objFetchMenu = { fetchMenu: () => objMenu };
   objFetchMenu.consumption = [];
+  objFetchMenu.order = (request) => {
+    objFetchMenu.consumption.push(request);
+  };
+  // objFetchMenu.order('coxinha');
+  // console.log(objFetchMenu.fetchMenu());
 
   return objFetchMenu;
 };
