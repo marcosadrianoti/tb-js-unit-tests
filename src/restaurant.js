@@ -94,9 +94,10 @@
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
 const createMenu = (objMenu) => {
-  const objFetchMenu = { fetchMenu: () => objMenu }
-  
-  return objFetchMenu
+  const objFetchMenu = { fetchMenu: () => objMenu };
+  objFetchMenu.consumption = [];
+
+  return objFetchMenu;
 };
 
 console.log(createMenu({ food: {}, drink: {} }));
