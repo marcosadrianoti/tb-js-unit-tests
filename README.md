@@ -46,4 +46,16 @@ Acesse o diretório do projeto com o comando `cd`:
 cd tb-js-unit-tests
 ```
 
-Para rodar o projeto em sua máquina, simplesmente abra o arquivo `index.html` no seu navegador preferido.
+Instale as dependências executando:
+
+```bash
+npm install
+```
+
+Os arquivos de teste estão no diretório `tests`. Utilize os seguintes comandos:
+ * `npm test` (executa todos os testes presentes na aplicação)
+ * `npm test caminho/para/arquivo` (executa apenas os testes presentes no arquivo especificado)
+    
+```bash
+npm test tests/average.spec.js
+```
